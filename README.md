@@ -10,9 +10,6 @@ In hindsight, using some high-level library like torchtext would have been a bet
 #### Tensor Based Approach
 All the notebooks are based on this approach. Ultimately, building neural nets is all about working with tensors. Knowing the shape and contents of each tensor is something that I have found very useful while learning. Hence, after each line of code, I have commented the tensor shape and changes that happen due to the transformations in code. This makes the process of understanding what's going on in neural nets more intuitive.
 
-## Training Environment
-I do not have an unlimited access to faster GPUs. The models below have been trained by renting GPUs on [vast.ai](https://vast.ai/). I used GTX 1080 Ti for majority of my experiments. 
-
 ## Papers
 ### 1. [DrQA](https://arxiv.org/abs/1704.00051) 
 In the first notebook, we implement a comparatively simple model that involves multi-layer LSTMs and bilinear attention. The details  and intuition of each layer/component are explained before jumping into the code. This model is very similar to the one discussed in [this](https://arxiv.org/pdf/1606.02858v2.pdf) paper and also have the same first authors: [Danqi Chen](https://www.cs.princeton.edu/~danqic/). The second model is also known as the "Stanfor Attentive Reader". The model implemented in the notebook is slightly advanced version of this. The results on dev set obtained are:
@@ -20,7 +17,6 @@ Epochs | EM | F1
 ---|---|---|
 5 | 56.4| 68.2|
 
-I'll be training this more to improve the results and will update it soon.
 
 ### 2. [Bidirectional Attention Flow (BiDAF)](https://arxiv.org/abs/1611.01603)
 Next, we move onto a bit more complex paper. This paper improves the results obtained by the previous paper. The model implemented here unlike previous ones is a multi-stage hierarchical architecture that represents the *context* and *query* at multiple levels of granularity. This paper also involves recurrence as it extensively uses LSTMs and a *memory-less* attention mechanism which is bi-directional in nature. This notebook discusses in detail about some important NLP techniques like __character embeddings__, __highway networks__ among others. Results on dev set:
@@ -33,10 +29,5 @@ Finally, we do away from recurrence and only use self-attention and convolutions
 Epochs | EM | F1
 ---|---|---|
 3 | * | 36.6 |
-
-I am currently training this model. I am currently short on time and I do not have access to faster GPUs. Training this for 1 epoch takes around 1 hour on GTX 1080 Ti.
-
-## Contributions
-I am not an expert. My main motive behind this project was to learn about an NLP domain. If you find any conceptual or silly mistake, kindly create an issue and I'll try my best to rectify them quickly. Other contributions are also welcome. If you train any model and get improved results, please make a PR. If you are interested in implementing more papers in this domain and wish to add them to this repository, I'd be happy to help. Although I am currently short on time, I'll be actively maintaining this repository.
 
 
